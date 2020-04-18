@@ -1,0 +1,55 @@
+diff -ruN libchewing.old/include/internal/bopomofo-private.h libchewing/include/internal/bopomofo-private.h
+--- libchewing.old/include/internal/bopomofo-private.h	2020-04-18 16:52:13.347866048 +1000
++++ libchewing/include/internal/bopomofo-private.h	2020-04-18 17:07:35.277840368 +1000
+@@ -37,6 +37,7 @@
+     KB_DVORAK,
+     KB_DVORAK_HSU,
+     KB_DACHEN_CP26,
++    KB_COLEMAKDH,
+     KB_HANYU_PINYIN,
+     KB_THL_PINYIN,
+     KB_MPS2_PINYIN,
+diff -ruN libchewing.old/include/internal/chewing-private.h libchewing/include/internal/chewing-private.h
+--- libchewing.old/include/internal/chewing-private.h	2020-04-18 16:52:13.347866048 +1000
++++ libchewing/include/internal/chewing-private.h	2020-04-18 17:07:43.583840137 +1000
+@@ -83,6 +83,7 @@
+     KBTYPE_DVORAK,
+     KBTYPE_DVORAK_HSU,
+     KBTYPE_DACHEN_CP26,
++    KBTYPE_COLEMAKDH,
+     KBTYPE_HANYU_PINYIN,
+     KBTYPE_LUOMA_PINYIN,
+     KBTYPE_MSP2,            /* Mandarin Phonetic Symbols II */
+diff -ruN libchewing.old/src/chewingio.c libchewing/src/chewingio.c
+--- libchewing.old/src/chewingio.c	2020-04-18 16:52:13.347866048 +1000
++++ libchewing/src/chewingio.c	2020-04-18 17:07:21.111840763 +1000
+@@ -59,6 +59,7 @@
+     "KB_DVORAK",
+     "KB_DVORAK_HSU",
+     "KB_DACHEN_CP26",
++    "KB_COLEMAKDH",
+     "KB_HANYU_PINYIN",
+     "KB_THL_PINYIN",
+     "KB_MPS2_PINYIN",
+diff -ruN libchewing.old/src/common/key2pho.c libchewing/src/common/key2pho.c
+--- libchewing.old/src/common/key2pho.c	2020-04-18 16:52:13.347866048 +1000
++++ libchewing/src/common/key2pho.c	2020-04-18 16:58:40.671855259 +1000
+@@ -79,6 +79,7 @@
+     "1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[7634",        /* Dvorak */
+     "bpmfdtnlgkhjvcjvcrzasexuyhgeiawomnkllsdfj",        /* Dvorak Hsu */
+     "qqazwwsxedcrfvttgbyhnujmuikbiolmoplnpyerd",        /* DACHEN-CP26 */
++    "1qaz2wrxfscptd5bgvjkmlnh8ue,9yi.0;o/-7634",        /* colemak */
+     "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-7634",        /* Hanyu Pinyin */
+     "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-7634",        /* Luoma Pinyin */
+     "1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-7634",        /* secondary Bopomofo Pinyin */
+diff -ruN libchewing.old/test/test-keyboard.c libchewing/test/test-keyboard.c
+--- libchewing.old/test/test-keyboard.c	2020-04-18 17:15:12.767827625 +1000
++++ libchewing/test/test-keyboard.c	2020-04-18 17:16:11.127826000 +1000
+@@ -29,6 +29,7 @@
+     "KB_DVORAK",
+     "KB_DVORAK_HSU",
+     "KB_DACHEN_CP26",
++    "KB_COLEMAKDH",
+     "KB_HANYU_PINYIN",
+     "KB_THL_PINYIN",
+     "KB_MPS2_PINYIN",
